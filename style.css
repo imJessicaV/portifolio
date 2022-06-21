@@ -20,6 +20,8 @@ body{
     justify-content: center;
     position: relative;
     animation: backgroundTransition 4s ease-in-out infinite;
+    border: 1px solid white;
+    border-radius: 0 0 20px 20px;
 }
 
 h1{
@@ -54,7 +56,7 @@ h2{
 
 a:hover{
     color: #C850C0;
-    background-color: white;
+    background-color: rgb(228, 202, 248);
 }
 
  @keyframes backgroundTransition{
@@ -88,7 +90,7 @@ a:hover{
     justify-content: center;
     cursor: pointer;
     z-index: 9999;
-    transition: 400ms ease-in-out 0;
+    transition: 400ms ease-in-out 0s;
  }
 
  .checkbox .trace{
@@ -97,7 +99,7 @@ a:hover{
     background-color: white;
     position: absolute;
     border-radius: 4px;
-    transition: 0.5 ease-in-out;
+    transition: 0.5s ease-in-out;
  }
 
  .checkbox .trace:nth-child(1){
@@ -126,7 +128,207 @@ a:hover{
     height: 40px;
     width: 40px;
     border-radius: 50%;
-    box-shadow: 0px 0px 0px 0px white;
+    box-shadow: 0px 0px 0px 0px rgb(228, 202, 248);
     z-index: -1;
-    transition: 400ms ease-in-out 0;
+    transition: 400ms ease-in-out 0s;
+
+}
+
+.menu-itens{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    transition: 400ms ease-in-out 0s;
+}
+
+li{
+    list-style-type: none;
+}
+.menu-itens ul li a{
+    margin: 10px 0;
+    color: purple;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 40px;
+}
+
+/*ANIMAÇÂO MENU*/
+#toggle:checked + .checkbox .trace:nth-child(1){
+    transform: rotate(45deg);
+    background-color: purple;
+    top: 47px;
+}
+#toggle:checked + .checkbox .trace:nth-child(2){
+   transform: translateY(-100px);
+   width: 30px;
+   visibility: hidden;
+   opacity: 0;
+    
+}
+#toggle:checked + .checkbox .trace:nth-child(3){
+    transform: rotate(-45deg);
+    background-color: #C850C0;
+    top: 48px;
+} 
+
+/*ANIMAÇÂO MENU*/
+#toggle:checked + .checkbox{
+    background-color: rgb(228, 202, 248);
+
+}
+
+#toggle:checked ~ .menu{
+    box-shadow: 0px 0px 0px 100vmax rgb(228, 202, 248);
+    z-index: 1;
+}
+
+#toggle:checked ~ .menu-itens{
+    visibility: visible;
+    opacity: 1;
+}
+
+/*CARDS BASE*/
+.container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 3rem 0;
+}
+
+.card-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 90%;
+}
+
+.card{
+    height: 300px;
+    width: 400px;
+    margin: 3rem 0 0 0;
+    background-image: url('./landscape2.jpg');
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: grayscale(0.5);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ;
+  }
+  .card-wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .card-text{
+    width: 40%;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    color: rgb(94, 76, 114)
+  }
+
+  .card-wrapper::before{
+    content: "";
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    display: block;
+    border: 1px solid white;
+    opacity: 0;
+    transition: 0.3s;
+  }
+
+  .card-wrapper h2{
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 0;
+    transition: 0.3s;
+  }
+
+.card-wrapper p{
+    font-size: 0;
+    visibility: hidden;
+    opacity: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.card:hover{
+    filter: unset;
+}
+
+.card:hover > .card-wrapper::before{
+    opacity: 1;
+    width: 350px;
+    height: 250px;
+}
+
+.card:hover > .card-wrapper p{
+    font-size: 14px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.footer{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#7f41d0;
+    border: 1px solid white;
+    border-radius: 20px 20px 0 0;
+}
+
+
+/*RESPONSIVIDADE*/
+@media(max-width: 800px){
+    .social-media{
+        display: flex;
+        flex-direction: column;
+    }
+    .container{
+        margin-top: 0;
+    }
+    .card-container{
+        flex-direction: column;
+    }
+    .container .card-container:nth-child(1),
+    .container .card-container:nth-child(1){
+        flex-direction: column-reverse;
+    }
+    .card{
+        height: 250px;
+        width: 250px;
+    }
+    .card-text{
+        width: 90%;
+        margin-top: 2rem;
+        text-align: center;
+    }
+    .card:hover > .card-wrapper::before{
+        height: 190px;
+        width: 190px;
+    }
 }
