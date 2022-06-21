@@ -88,7 +88,7 @@ a:hover{
     justify-content: center;
     cursor: pointer;
     z-index: 9999;
-    transition: 400ms ease-in-out 0;
+    transition: 400ms ease-in-out 0s;
  }
 
  .checkbox .trace{
@@ -97,7 +97,7 @@ a:hover{
     background-color: white;
     position: absolute;
     border-radius: 4px;
-    transition: 0.5 ease-in-out;
+    transition: 0.5s ease-in-out;
  }
 
  .checkbox .trace:nth-child(1){
@@ -128,5 +128,72 @@ a:hover{
     border-radius: 50%;
     box-shadow: 0px 0px 0px 0px white;
     z-index: -1;
-    transition: 400ms ease-in-out 0;
+    transition: 400ms ease-in-out 0s;
+
 }
+
+.menu-itens{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    transition: 400ms ease-in-out 0s;
+}
+
+li{
+    list-style-type: none;
+}
+.menu-itens ul li a{
+    margin: 10px 0;
+    color: purple;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 40px;
+}
+
+/*ANIMAÇÂO MENU*/
+#toggle:checked + .checkbox .trace:nth-child(1){
+    transform: rotate(45deg);
+    background-color: purple;
+    top: 47px;
+}
+#toggle:checked + .checkbox .trace:nth-child(2){
+   transform: translateY(-100px);
+   width: 30px;
+   visibility: hidden;
+   opacity: 0;
+    
+}
+#toggle:checked + .checkbox .trace:nth-child(3){
+    transform: rotate(-45deg);
+    background-color: #C850C0;
+    top: 48px;
+} 
+
+/*ANIMAÇÂO MENU*/
+#toggle:checked + .checkbox{
+    background-color: white;
+
+}
+
+#toggle:checked ~ .menu{
+    box-shadow: 0px 0px 0px 100vmax white;
+    z-index: 1;
+}
+
+#toggle:checked ~ .menu-itens{
+    visibility: visible;
+    opacity: 1;
+}
+
+
+
+
