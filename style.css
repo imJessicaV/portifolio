@@ -15,19 +15,54 @@ body{
     background: linear-gradient(-45deg, purple, #4158D0,  #C850C0,  #FFCC70);
     background-size: 400% 400%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     position: relative;
     animation: backgroundTransition 4s ease-in-out infinite;
     border: 1px solid white;
     border-radius: 0 0 20px 20px;
+
+}
+
+.description{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+   
+}
+
+.image{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 200px;   
+}
+
+.image img{
+    width: 91%;
+    /*border: 1px solid white;
+    border-radius: 20px 20px 0 0;*/
+}
+
+.text{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 2rem;
 }
 
 h1{
     text-transform: uppercase;
     letter-spacing: 4px;
     text-align: center;
+    
 }
 
 h2{
@@ -332,3 +367,4 @@ li{
         width: 190px;
     }
 }
+
